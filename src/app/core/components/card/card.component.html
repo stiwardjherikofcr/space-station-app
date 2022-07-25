@@ -1,0 +1,31 @@
+<div class="card my-3">
+    <img src="{{ data.img }}" class="card-img-top" alt="{{ data.name }}">
+    <div class="card-body">
+        <span class="btn btn-sm float-end btn-light">{{ data.launchDate }}</span>
+        <h5 class="card-title pb-3">Name: {{ data.name }}</h5>
+        <p class="card-text">Country: {{ data.country }}</p>
+        <p class="card-text">Speed(km): {{ data.speed }}</p>
+        <p class="card-text">Fuel Type: {{ data.fuelType.name }}</p>
+        <p class="card-text">Weight(Tm): {{ data.weight }}</p>
+        <p class="card-text">Height(mts): {{ data.height }}</p>
+        <div class="row text-left">
+            <p class="text-muted mt-2"></p>
+            <hr>
+            <div *ngIf="data.passengersCapacity >= 0">
+                <p class="card-text">Passengers Capacity: {{ data.passengersCapacity }}</p>
+                <p class="card-text">Purpose Type: {{ data.purpose }}</p>
+            </div>
+            <div *ngIf="data.quantityMotors >= 0">
+                <p class="card-text">Destination: {{ data.destination }}</p>
+                <p class="card-text">Quantity Motors: {{ data.quantityMotors }}</p>
+                <p class="card-text">Push(kg): {{ data.push }}</p>
+            </div>
+            <div *ngIf="data.power >= 0">
+                <p class="card-text">Push(kg): {{ data.push }}</p>
+                <p class="card-text">Capacity Load: {{ data.capacityLoad }}</p>
+                <p class="card-text">Power(HP): {{ data.power }}</p>
+            </div>
+        </div>
+        <a class="btn btn-secondary mt-3">View details &raquo;</a>
+    </div>
+</div>

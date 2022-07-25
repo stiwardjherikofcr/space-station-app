@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
+
+    <a class="navbar-brand" [routerLink]="['/']">
+        <img src="/assets/img/logo-sofka.webp" alt="logo BECL">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Spaceships
+                </a>
+                <ul class="dropdown-menu">
+                    <a class="dropdown-item" routerLink="../shuttlevehicle/shuttlevehicles-list">Shuttle Vehicle</a>
+                    <a class="dropdown-item" routerLink="../mannedspaceship/mannedspaceships-list">Manned Spaceship</a>
+                    <a class="dropdown-item" routerLink="../unmannedspaceship/unmannedspaceships-list">Unmanned Spaceship</a>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/">Inicio</a>
+            </li>
+        </ul>
+    </div>
+</nav>

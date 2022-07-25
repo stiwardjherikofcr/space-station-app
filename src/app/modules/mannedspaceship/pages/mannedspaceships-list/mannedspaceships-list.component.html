@@ -1,0 +1,13 @@
+<div class="container my-5">
+    <h1>Manned Spaceships</h1>
+    <app-modal [modalTitle]="'Add Manned Spaceship'" [showModal]="showModal"></app-modal>
+
+    <hr>
+    <input type="text" class="form-control" placeholder="Search for a character" (input)="filterCharacters($event)">
+
+    <div class="row">
+        <div *ngFor="let m of mannedspaceships" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 col-xxl-4">
+            <app-card [data]="m" class="d-flex justify-content-center"></app-card>
+        </div>
+    </div>
+</div>

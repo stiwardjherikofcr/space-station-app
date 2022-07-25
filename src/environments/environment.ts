@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'http://localhost:8090/api/v1',
+  apiEndpoints: {
+    fuelTypes: 'fuel-types',
+    mannedSpaceships: 'spaceships/manned',
+    unmannedSpaceships: 'spaceships/unmanned',
+    shuttleVehicle: 'spaceships/shuttle',
+  }
 };
 
 /*
