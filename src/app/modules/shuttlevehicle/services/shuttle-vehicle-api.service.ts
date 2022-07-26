@@ -20,4 +20,8 @@ export class ShuttleVehicleApiService {
     return this.http.get<IShuttleVehicle[]>(this.URL);
   }
 
+  createShuttleVehicle(shuttleVehicle: IShuttleVehicle): Observable<IShuttleVehicle> {
+    return this.http.post<IShuttleVehicle>(this.URL, shuttleVehicle);
+  }
+
 }

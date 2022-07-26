@@ -1,22 +1,157 @@
-<div class="modal fade" [ngClass]="{'show': showModal}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{ modalTitle }}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="formGroupDefaultSelect" class="form-label">FuelType</label>
-                    <select class="form-control" id="formGroupDefaultSelect">
-                        <option [value]="f.id" *ngFor="let f of fuelTypes">{{ f.name }}</option>
-                    </select>
+<ng-container *ngIf="showModal">
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-11">
+                            <h4 class="card-title">{{modalTitle}}</h4>
+                        </div>
+                        <div class="col-1">
+                            <button type="button" class="btn-close mt-1" (click)="hide()"></button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter name"
+                                    [(ngModel)]="spaceship.name" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="country">Country</label>
+                                <input type="text" class="form-control" id="country" placeholder="Enter country"
+                                    [(ngModel)]="spaceship.country" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="date">LaunchDate</label>
+                                <input type="date" class="form-control" id="date" placeholder="Enter date"
+                                    [(ngModel)]="spaceship.launchDate" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="speed">Speed</label>
+                                <input type="text" class="form-control" id="speed" placeholder="Enter speed"
+                                    [(ngModel)]="spaceship.speed" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="fuelType">FuelType</label>
+                                <select class="form-control" id="fuelType" (change)="selectFuelType()" required>
+                                    <option [value]="f.id" *ngFor="let f of fuelTypes">{{ f.name }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="weight">Weight</label>
+                                <input type="text" class="form-control" id="weight" placeholder="Enter weight"
+                                    [(ngModel)]="spaceship.weight" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="height">Height</label>
+                                <input type="text" class="form-control" id="height" placeholder="Enter height"
+                                    [(ngModel)]="spaceship.height" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="typeSpaceship">TypeSpaceship</label>
+                                <select class="form-control" id="typeSpaceship" placeholder="Enter typeSpaceship"
+                                    (change)="selectTypeSpaceship()">
+                                    <option value="1">Shuttle Vehicle</option>
+                                    <option value="2">Manned Spaceship</option>
+                                    <option value="3">Unmanned Spaceship</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="typeSpaceship == 1">
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="power">Power</label>
+                                <input type="text" class="form-control" id="power" placeholder="Enter power"
+                                    [(ngModel)]="spaceship.power" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="capacityLoad">CapacityLoad</label>
+                                <input type="text" class="form-control" id="capacityLoad"
+                                    placeholder="Enter capacityLoad" [(ngModel)]="spaceship.capacityLoad" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="typeSpaceship == 2">
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="passengersCapacity">PassengersCapacity</label>
+                                <input type="text" class="form-control" id="passengersCapacity"
+                                    placeholder="Enter passengersCapacity" [(ngModel)]="spaceship.passengersCapacity"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="purposeType">PurposeType</label>
+                                <select class="form-control" id="purposeType" placeholder="Enter purposeType"
+                                    (change)="selectPurposeType()" required>
+                                    <option value="LUNAR_MISSION">Lunar Mission</option>
+                                    <option value="HUMAN_BEHAVIOR">Human Behavior</option>
+                                    <option value="SATELLITES_MAINTENANCE">Satellites Maintenance</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="typeSpaceship == 3">
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="destination">Destination</label>
+                                <input type="text" class="form-control" id="destination"
+                                    placeholder="Enter destination" [(ngModel)]="spaceship.destination"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="quantityMotors">QuantityMotors</label>
+                                <input type="text" class="form-control" id="quantityMotors"
+                                    placeholder="Enter quantityMotors" [(ngModel)]="spaceship.quantityMotors"
+                                    required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="typeSpaceship !== 2">
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="push">Push</label>
+                                <input type="text" class="form-control" id="push" placeholder="Enter push"
+                                    [(ngModel)]="spaceship.push" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <button type="button" class="btn btn-secondary mx-2" (click)="hide()">Close</button>
+                    <button type="button" class="btn btn-secondary mx-2" (click)="save()">Save</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</ng-container>

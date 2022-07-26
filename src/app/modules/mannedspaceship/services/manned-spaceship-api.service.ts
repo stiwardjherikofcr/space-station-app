@@ -20,4 +20,8 @@ export class MannedSpaceshipApiService {
     return this.http.get<IMannedSpaceship[]>(this.URL);
   }
 
+  createMannedSpaceship(mannedSpaceship: IMannedSpaceship): Observable<IMannedSpaceship> {
+    return this.http.post<IMannedSpaceship>(this.URL, mannedSpaceship);
+  }
+
 }

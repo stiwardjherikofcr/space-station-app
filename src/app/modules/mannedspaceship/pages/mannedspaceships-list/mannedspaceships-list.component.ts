@@ -10,7 +10,6 @@ import { MannedSpaceshipApiService } from '@modules/mannedspaceship/services/man
 })
 export class MannedspaceshipsListComponent implements OnInit {
 
-  public showModal: boolean = true;
   public mannedspaceships: IMannedSpaceship[] = [];
   public mannedspaceshipsCopy: IMannedSpaceship[] = [];
 

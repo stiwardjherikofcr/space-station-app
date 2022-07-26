@@ -21,4 +21,8 @@ export class UnmannedSpaceshipApiService {
     return this.http.get<IUnmannedSpaceship[]>(this.URL);
   }
 
+  createUnmannedSpaceship(unmannedSpaceship: IUnmannedSpaceship): Observable<IUnmannedSpaceship> {
+    return this.http.post<IUnmannedSpaceship>(this.URL, unmannedSpaceship);
+  }
+
 }
